@@ -1,11 +1,17 @@
 name: "Terraform-Apply-Infra"
 
 on:
-  push:
-    branches:
-    - master
-    paths-ignore:
-    - 'README.md'
+  workflow_dispatch:
+    inputs:
+      infra_env:
+        description: 'Environment Name'
+        required: true
+        default: 'provide one (dev/sandbox/nonprod/prod)'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
 
 #env:
 # ENV: dev
